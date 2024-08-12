@@ -1,0 +1,53 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(12, 12, 12);
+    padding: 1rem;
+  }
+  
+  .navbar-logo a{
+    text-decoration: none;
+    color: rgba(246, 241, 241, 0.8);
+    padding: 1rem;
+    font-size: larger ;
+    font-weight: 600;
+  }
+
+  
+  .navbar-links a {
+    margin: 0 1rem;
+    text-decoration: none;
+    color: rgba(246, 241, 241, 0.8);
+    font-size: 1.3vmax;
+  }
+  
+  .navbar-logo a:hover {
+    color: #eb4034;
+  }
+
+  .navbar-links a:hover {
+    color: #eb4034;
+  }
+  
+  .navbar-icons a {
+    margin: 0 0.5rem;
+    color: rgba(239, 237, 237, 0.8);
+    font-size: 1.5rem; 
+  }
+  
+  .navbar-icons a:hover {
+    color: #eb4034;
+  }
+  
+  .speedDial {
+  position: fixed;
+  right: 2vmax;
+  top: 6vmax;
+}
+
+.speedDialIcon {
+  width: 56px;
+  height: 56px;
+  border-radius: 100%;
+}
