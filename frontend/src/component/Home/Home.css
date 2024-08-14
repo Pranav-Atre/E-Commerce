@@ -3,7 +3,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 89.5vmin;
+  height: 100vmin;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -38,18 +38,6 @@
   color: white;
 }
 
-.banner::after {
-  content: "";
-  width: 100vw;
-  height: 100vmin;
-  background-color: #ffffff;
-  position: absolute;
-  top: 0%;
-  left: 0;
-  clip-path: polygon(100% 68%, 0 100%, 100% 100%);
-  max-width: 100%;
-}
-
 .homeHeading {
   text-align: center;
   font-family: Roboto;
@@ -71,7 +59,7 @@
 }
 
 .productCard {
-  width: 15vmax;
+  width: 16vmax;
   display: flex;
   flex-direction: column;
   text-decoration: none;

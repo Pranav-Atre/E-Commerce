@@ -17,6 +17,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useAlert } from 'react-alert'
 import axios from 'axios'
 import { createOrder, clearErrors } from '../../actions/orderActions'
+import { removeFromCart } from '../../actions/cartActions'
 
 const Payment = ({history}) => {
     const payBtn = useRef(null);
@@ -81,6 +82,9 @@ const Payment = ({history}) => {
                         status: result.paymentIntent.status
                     };
                     dispatch(createOrder(order))
+                    cartItems && cartItems.map((item) => (
+                        dispatch(removeFromCart(item.product))
+                    ))
                     history.push("./success")
                 } else {
                     alert.error("Something went wrong with your payment. Please try again.")

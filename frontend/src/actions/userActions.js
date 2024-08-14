@@ -210,7 +210,7 @@ export const updatePassword = (password) => async (dispatch) => {
         );
         dispatch({
             type: UPDATE_PASSWORD_SUCCESS,
-            payload: data.success
+            payload: data
         })
     } catch (error) {
         dispatch({

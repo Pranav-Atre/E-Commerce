@@ -1,11 +1,11 @@
 import React from "react";
 import "./aboutSection.css";
 import { Button, Typography, Avatar } from "@material-ui/core";
-import YouTubeIcon from "@material-ui/icons/YouTube";
+import GitHubIcon from "@material-ui/icons/GitHub";
 import InstagramIcon from "@material-ui/icons/Instagram";
 const About = () => {
   const visitInstagram = () => {
-    window.location = "https://instagram.com/meabhisingh";
+    window.location = "https://www.instagram.com/pranavatre2309";
   };
   return (
     <div className="aboutSection">
@@ -33,13 +33,13 @@ const About = () => {
           <div className="aboutSectionContainer2">
             <Typography component="h2">Our Brands</Typography>
             <a
-              href="https://www.youtube.com/channel/UCO7afj9AUo0zV69pqEYhcjw"
+              href="https://github.com/Pranav-Atre/"
               target="blank"
             >
-              <YouTubeIcon className="youtubeSvgIcon" />
+              <GitHubIcon className="githubSvgIcon" />
             </a>
 
-            <a href="https://instagram.com/meabhisingh" target="blank">
+            <a href="https://www.instagram.com/pranavatre2309" target="blank">
               <InstagramIcon className="instagramSvgIcon" />
             </a>
           </div>

@@ -104,7 +104,7 @@ export const profileReducer = (state = {}, action) => {
             return {
                 ...state,
                 loading: false,
-                isUpdated: action.payload.success,
+                isUpdated: action.payload,
                 message : action.payload.message
             };
         case DELETE_USER_SUCCESS:

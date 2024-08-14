@@ -65,10 +65,12 @@
   
   #updateProfileImage > img {
     width: 3vmax;
+    height: 3vmax;
     border-radius: 100%;
-    margin-right: 2vmax;
+    margin-right: 1vmax;
   }
   #updateProfileImage > input {
+    width: 80%;
     display: flex;
     padding: 0%;
   }
@@ -82,7 +84,7 @@
     margin: 0%;
     font: 400 0.8vmax cursive;
     transition: all 0.5s;
-    padding: 0 1vmax;
+    padding: 0 0.5vmax;
     color: rgba(0, 0, 0, 0.623);
     background-color: rgb(255, 255, 255);
   }
