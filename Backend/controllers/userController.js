@@ -94,35 +94,46 @@ exports.updateProfile = async (req, res) => {
         const newUserData = {
             name: req.body.name,
             email: req.body.email,
-        }
+        };
 
-        if (req.body.avatar !== "") {
+        // Check if the avatar is provided
+        if (req.body.avatar && req.body.avatar !== "") {
             const user = await User.findById(req.user.id);
-            const imageId = user.avatar.public_id;
-            await cloudinary.v2.uploader.destroy(imageId);
+
+            // Delete the old avatar if it exists
+            if (user.avatar && user.avatar.public_id) {
+                const imageId = user.avatar.public_id;
+                await cloudinary.v2.uploader.destroy(imageId);
+            }
+
+            // Upload the new avatar
             const myCloud = await cloudinary.v2.uploader.upload(req.body.avatar, {
                 folder: "avatars",
                 width: 150,
                 crop: "scale",
-            })
+            });
+
             newUserData.avatar = {
                 public_id: myCloud.public_id,
                 url: myCloud.secure_url,
-            }
+            };
         }
 
+        // Update user data
         const user = await User.findByIdAndUpdate(req.user.id, newUserData, {
             new: true,
             runValidators: true,
-            useFindAndModify: false
+            useFindAndModify: false,
         });
-        res.json({
+
+        res.status(200).json({
             success: true
         });
     } catch (error) {
-        res.json(error.message);
+        res.status(500).json({ success: false, message: error.message });
     }
-}
+};
+
 
 //Get all users(Admin)
 exports.getAllUsers = async (req, res) => {

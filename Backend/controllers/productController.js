@@ -70,21 +70,21 @@ exports.updateProduct = async (req, res) => {
         for (let i = 0; i < product.images.length; i++) {
             await cloudinary.v2.uploader.destroy(product.images[i].public_id)
         }
+
+
+        const imagesLinks = [];
+        for (let i = 0; i < images?.length; i++) {
+            const result = await cloudinary.v2.uploader.upload(images[i], {
+                folder: "products",
+            });
+            imagesLinks.push({
+                public_id: result.public_id,
+                url: result.secure_url,
+            });
+        }
+
+        req.body.images = imagesLinks;
     }
-
-    const imagesLinks = [];
-    for (let i = 0; i < images?.length; i++) {
-        const result = await cloudinary.v2.uploader.upload(images[i], {
-            folder: "products",
-        });
-        imagesLinks.push({
-            public_id: result.public_id,
-            url: result.secure_url,
-        });
-    }
-
-    req.body.images = imagesLinks;
-
     const updatedProduct = await Product.findByIdAndUpdate(req.params.id, req.body, { new: true });
     res.status(200).json(
         {
@@ -180,24 +180,26 @@ exports.deleteReview = async (req, res) => {
     let avg = 0;
     reviews.forEach((rev) => {
         avg += rev.rating;
-    }); 
-    
-    let ratings =0
+    });
+
+    let ratings = 0
     if (reviews.length === 0) {
         ratings = 0
     } else {
         ratings = avg / reviews.length;
     }
-    
+
     const numOfReviews = reviews.length;
     await Product.findByIdAndUpdate(productId, {
         reviews,
         ratings,
         numOfReviews
-    }, { new: true,
+    }, {
+        new: true,
         useFindAndModify: false
-     });
+    });
     res.status(200).json({
         success: true,
-        message: "Review deleted" })
+        message: "Review deleted"
+    })
 }
