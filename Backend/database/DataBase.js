@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const connectDB = () => {
     mongoose.connect(process.env.DB_URL , { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('Connected to MongoDB on localhost'))
+  .then(() => console.log('Connected to MongoDB'))
   .catch((err) => console.error('Failed to connect to MongoDB', err));
 }
 
