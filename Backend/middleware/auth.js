@@ -2,14 +2,14 @@ const jwt = require("jsonwebtoken");
 const User = require("../model/user");
 
 exports.isAuthenticated = async (req, res, next) => {
-    const { token } = req.cookies;
-    if (!token) {
+    const { _vercel_jwt } = req.cookies;
+    if (!_vercel_jwt) {
         return res.status(401).json({ 
             success : false,
             message: "You are not authenticated" });
     }
     try {
-        const decodedData = jwt.verify(token, process.env.JWT_SECRET);
+        const decodedData = jwt.verify(_vercel_jwt, process.env.JWT_SECRET);
         req.user = await User.findById(decodedData.id);
         next();
     } catch (error) {
