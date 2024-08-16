@@ -9,18 +9,10 @@ const dotenv = require("dotenv");
 dotenv.config(); 
 
 // Set up CORS to allow requests from your frontend (Vercel)
-const allowedOrigins = [process.env.FRONTEND_URL];
-app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin) return callback(null, true);
-    if (allowedOrigins.indexOf(origin) === -1) {
-      const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
-      return callback(new Error(msg), false);
-    }
-    return callback(null, true);
-  },
-  credentials: true, // Enable sending cookies
-}));
+app.use(cors());
+app.get('/api/v1/me', (req, res) => {
+  res.json({ message: "This is a CORS-enabled response" });
+});
 
 app.use(express.json());
 app.use(cookieParser());
