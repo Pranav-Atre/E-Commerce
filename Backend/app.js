@@ -10,9 +10,9 @@ dotenv.config();
 
 // Set up CORS to allow requests from your frontend (Vercel)
 app.use(cors());
-app.get('/api/v1/me', (req, res) => {
-  res.json({ message: "This is a CORS-enabled response" });
-});
+// app.get('/api/v1/me', (req, res) => {
+//   res.json({ message: "This is a CORS-enabled response" });
+// });
 
 app.use(express.json());
 app.use(cookieParser());
