@@ -29,7 +29,7 @@ export const createOrder = (order) => async (dispatch) => {
                 "Content-Type": "application/json",
             }
         }
-        const { data } = await axios.post('https://e-commerce-zrqz.onrender.com/api/v1/order/new', order, config);
+        const { data } = await axios.post('/api/v1/order/new', order, config);
         dispatch({ type: CREATE_ORDER_SUCCESS, payload: data})
     } catch (error) {
         dispatch({
@@ -42,7 +42,7 @@ export const createOrder = (order) => async (dispatch) => {
 export const myOrders = () => async (dispatch) => {
     try {
         dispatch({ type: MY_ORDERS_REQUEST });
-        const { data } = await axios.get('https://e-commerce-zrqz.onrender.com/api/v1/orders/me');
+        const { data } = await axios.get('/api/v1/orders/me');
         dispatch({ type: MY_ORDERS_SUCCESS, payload: data})
     } catch (error) {
         dispatch({
@@ -55,7 +55,7 @@ export const myOrders = () => async (dispatch) => {
 export const getAllOrders = () => async (dispatch) => {
     try {
         dispatch({ type: ALL_ORDERS_REQUEST });
-        const { data } = await axios.get('https://e-commerce-zrqz.onrender.com/api/v1/admin/orders');
+        const { data } = await axios.get('/api/v1/admin/orders');
         dispatch({ type: ALL_ORDERS_SUCCESS, payload: data})
     } catch (error) {
         dispatch({
@@ -73,7 +73,7 @@ export const updateOrder = (id, order) => async (dispatch) => {
                 "Content-Type": "application/json",
             }
         }
-        const { data } = await axios.put(`https://e-commerce-zrqz.onrender.com/api/v1/admin/order/${id}`, order, config);
+        const { data } = await axios.put(`/api/v1/admin/order/${id}`, order, config);
         dispatch({ type: UPDATE_ORDER_SUCCESS, payload: data.success})
     } catch (error) {
         dispatch({
@@ -86,7 +86,7 @@ export const updateOrder = (id, order) => async (dispatch) => {
 export const deleteOrder = (id) => async (dispatch) => {
     try {
         dispatch({ type: DELETE_ORDER_REQUEST });
-        const { data } = await axios.delete(`https://e-commerce-zrqz.onrender.com/api/v1/admin/order/${id}`);
+        const { data } = await axios.delete(`/api/v1/admin/order/${id}`);
         dispatch({ type: DELETE_ORDER_SUCCESS, payload: data.success})
     } catch (error) {
         dispatch({
@@ -99,7 +99,7 @@ export const deleteOrder = (id) => async (dispatch) => {
 export const getOrderDetails = (id) => async (dispatch) => {
     try {
         dispatch({ type: ORDER_DETAILS_REQUEST });
-        const { data } = await axios.get(`https://e-commerce-zrqz.onrender.com/api/v1/order/${id}`);
+        const { data } = await axios.get(`/api/v1/order/${id}`);
         dispatch({ type: ORDER_DETAILS_SUCCESS, payload: data})
     } catch (error) {
         dispatch({

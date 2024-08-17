@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const addToCart = (id, quantity) => async (dispatch, getState) => {
     
-        const { data } = await axios.get(`https://e-commerce-zrqz.onrender.com/api/v1/products/${id}`);
+        const { data } = await axios.get(`/api/v1/products/${id}`);
         dispatch({
             type: ADD_TO_CART,
             payload: {
