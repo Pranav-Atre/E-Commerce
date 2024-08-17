@@ -8,12 +8,7 @@ const dotenv = require("dotenv");
 
 dotenv.config(); 
 
-// Set up CORS to allow requests from your frontend (e.g., Vercel)
-const allowedOrigins = ["https://e-commerce-7e2vpvax9-pranavs-projects-71abbee2.vercel.app"]; // Replace with your Vercel frontend URL
-app.use(cors({
-    origin: allowedOrigins,
-    credentials: true // Allows sending cookies from the frontend
-}));
+app.use(cors());
 
 app.use(express.json());
 app.use(cookieParser());
