@@ -5,7 +5,7 @@ const API_BASE_URL = "https://e-commerce-zrqz.onrender.com";
 
 export const addToCart = (id, quantity) => async (dispatch, getState) => {
     
-        const { data } = await axios.get(`${API_BASE_URL}/api/v1/products/${id}`);
+        const { data } = await axios.get(`${API_BASE_URL}/api/v1/products/${id}`, {withCredentials: true});
         dispatch({
             type: ADD_TO_CART,
             payload: {
