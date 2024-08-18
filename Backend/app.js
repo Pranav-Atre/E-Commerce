@@ -10,6 +10,7 @@ dotenv.config();
 
 app.use(cors(
     {
+        origin: ["https://e-commerce-git-master-pranavs-projects-71abbee2.vercel.app"],
         credentials: true,
     }
 ));
