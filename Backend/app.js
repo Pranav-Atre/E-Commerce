@@ -8,7 +8,10 @@ const dotenv = require("dotenv");
 
 dotenv.config(); 
 
-app.use(cors());
+app.use(cors({
+    origin: 'https://e-commerce-chi-rosy-57.vercel.app',  // Replace with your Vercel domain
+    credentials: true,
+  }));
 
 app.use(express.json());
 app.use(cookieParser());
