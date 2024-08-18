@@ -70,7 +70,7 @@ function App() {
     {isAuthenticated && <UserOptions user={user}/>}
     {stripeApiKey && (
         <Elements stripe={loadStripe(stripeApiKey)}>
-          <ProtectedRoute exact path="/process/payment" component={Payment} />
+          <ProtectedRoute exact path={`${API_BASE_URL}/process/payment`} component={Payment} />
         </Elements>
       )}
 
