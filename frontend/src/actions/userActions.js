@@ -37,11 +37,14 @@ const API_BASE_URL = "https://e-commerce-zrqz.onrender.com";
 export const login = (email, password) => async (dispatch) => {
     try {
         dispatch({ type: LOGIN_REQUEST });
-        const config = { headers: { 'Content-Type': 'application/json' } }
+        const config = { 
+            headers: { 
+                'Content-Type': 'application/json'},
+                withCredentials: true
+              }
         const { data } = await axios.post(`${API_BASE_URL}/api/v1/login`,
             { email, password },
             config,
-            {withCredentials: true}
         );
         dispatch({
             type: LOGIN_SUCCESS,
