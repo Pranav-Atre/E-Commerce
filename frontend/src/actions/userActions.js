@@ -40,7 +40,8 @@ export const login = (email, password) => async (dispatch) => {
         const config = { headers: { 'Content-Type': 'application/json' } }
         const { data } = await axios.post(`${API_BASE_URL}/api/v1/login`,
             { email, password },
-            config
+            config,
+            {withCredentials: true}
         );
         dispatch({
             type: LOGIN_SUCCESS,
