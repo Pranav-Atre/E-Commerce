@@ -40,13 +40,17 @@ import ProductReviews from './component/Admin/ProductReviews.js';
 import Contact from './component/layout/Contact/Contact.js';
 import About from './component/layout/About/About.js';
 import NotFound from './component/layout/NotFound/NotFound.js';
+const dotenv = require("dotenv");
+dotenv.config(); 
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
 
 function App() {
   const {isAuthenticated, user} = useSelector(state => state.user)
   const [stripeApiKey, setStripeApiKey] = useState("");
   async function getStripeApiKey() {
     try {
-      const { data } = await axios.get("/api/v1/stripeapikey");
+      const { data } = await axios.get(`${API_BASE_URL}/api/v1/stripeapikey`);
       setStripeApiKey(data.stripeApiKey);
     } catch (error) {
       console.log(error)

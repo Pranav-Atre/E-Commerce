@@ -1,9 +1,13 @@
 import { ADD_TO_CART, REMOVE_FROM_CART, SAVE_SHIPPING_INFO } from "../constants/cartConstants";
 import axios from "axios";
+const dotenv = require("dotenv");
+dotenv.config(); 
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
 
 export const addToCart = (id, quantity) => async (dispatch, getState) => {
     
-        const { data } = await axios.get(`/api/v1/products/${id}`);
+        const { data } = await axios.get(`${API_BASE_URL}/api/v1/products/${id}`);
         dispatch({
             type: ADD_TO_CART,
             payload: {
