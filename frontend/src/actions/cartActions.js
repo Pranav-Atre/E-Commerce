@@ -1,8 +1,6 @@
 import { ADD_TO_CART, REMOVE_FROM_CART, SAVE_SHIPPING_INFO } from "../constants/cartConstants";
 import axios from "axios";
-const dotenv = require("dotenv");
-dotenv.config(); 
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+const API_BASE_URL = "https://e-commerce-zrqz.onrender.com";
 
 
 export const addToCart = (id, quantity) => async (dispatch, getState) => {

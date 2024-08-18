@@ -20,10 +20,7 @@ import {
     DELETE_ORDER_FAIL,
     CLEAR_ERRORS
 } from "../constants/orderConstants";
-const dotenv = require("dotenv");
-dotenv.config(); 
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
-
+const API_BASE_URL = "https://e-commerce-zrqz.onrender.com";
 
 export const createOrder = (order) => async (dispatch) => {
     try {

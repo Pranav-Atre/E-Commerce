@@ -40,9 +40,7 @@ import ProductReviews from './component/Admin/ProductReviews.js';
 import Contact from './component/layout/Contact/Contact.js';
 import About from './component/layout/About/About.js';
 import NotFound from './component/layout/NotFound/NotFound.js';
-const dotenv = require("dotenv");
-dotenv.config(); 
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+const API_BASE_URL = "https://e-commerce-zrqz.onrender.com";
 
 
 function App() {

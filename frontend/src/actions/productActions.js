@@ -29,9 +29,7 @@ import {
     DELETE_REVIEW_SUCCESS,
     DELETE_REVIEW_FAIL,
 } from "../constants/productConstants";
-const dotenv = require("dotenv");
-dotenv.config(); 
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+const API_BASE_URL = "https://e-commerce-zrqz.onrender.com";
 
 export const getProducts = (keyword = "", currentPage = 1, price = [0,30000], category, ratings =0) => async (dispatch) => {
     try {

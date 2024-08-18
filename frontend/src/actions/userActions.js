@@ -31,6 +31,7 @@ import {
     DELETE_USER_SUCCESS,
     DELETE_USER_FAIL,
 } from "../constants/userConstants";
+const API_BASE_URL = "https://e-commerce-zrqz.onrender.com";
 
 //Login User
 export const login = (email, password) => async (dispatch) => {
