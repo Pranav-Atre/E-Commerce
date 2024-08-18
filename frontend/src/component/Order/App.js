@@ -28,13 +28,16 @@ import { loadStripe } from "@stripe/stripe-js";
 import OrderSuccess from './component/Cart/OrderSuccess.js';
 import MyOrders from './component/Order/MyOrders.js';
 import OrderDetails from './component/Order/OrderDetails.js';
+const dotenv = require("dotenv");
+dotenv.config(); 
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 function App() {
   const {isAuthenticated, user} = useSelector(state => state.user)
   const [stripeApiKey, setStripeApiKey] = useState("");
   async function getStripeApiKey() {
     try {
-      const { data } = await axios.get("/api/v1/stripeapikey");
+      const { data } = await axios.get(`${API_BASE_URL}/api/v1/stripeapikey`);
       setStripeApiKey(data.stripeApiKey);
     } catch (error) {
       console.log(error)
