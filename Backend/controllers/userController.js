@@ -58,7 +58,6 @@ exports.logoutUser = async (req, res) => {
 
 // Get user details
 exports.getUserDetails = async (req, res) => {
-    console.log(req)
     try {
         const user = await User.findById(req.user.id)
         res.json(user);
