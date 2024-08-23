@@ -9,7 +9,7 @@ const dotenv = require("dotenv");
 dotenv.config(); 
 
 app.use(cors({
-        origin: "https://e-commerce-project2309.vercel.app",
+        origin: ['http://localhost:3000', "https://e-commerce-project2309.vercel.app"],
         credentials: true,
     }));
 
