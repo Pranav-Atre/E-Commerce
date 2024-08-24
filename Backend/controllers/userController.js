@@ -4,6 +4,11 @@ const cloudinary = require("cloudinary")
 
 
 exports.registerUser = async (req, res) => {
+        // Check if email already exists
+        const existingUser = await User.findOne({ email });
+        if (existingUser) {
+            throw new Error('Email already exists');
+        }
     const myCloud = await cloudinary.v2.uploader.upload(req.body.avatar, {
         folder: "avatars",
         width: 150,
