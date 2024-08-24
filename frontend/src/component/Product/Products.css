@@ -16,6 +16,11 @@
     justify-content: center;
     min-height: 30vh;
   }
+
+  .products p {
+    margin-top: 5vmax;
+    color: rgba(0, 0, 0, 0.678);
+  }
   
   .paginationBox {
     display: flex;
@@ -102,6 +107,7 @@
 
     .productsHeading {
       font-size: 1.7vmax;
+      width: 100%;
     }
 
     .filterBox {

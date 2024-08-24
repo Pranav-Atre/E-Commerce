@@ -45,6 +45,7 @@ const Products = ({ match }) => {
           <div className='container'>
           <div className="products">
         <h2 className="productsHeading">Products</h2>
+        {filteredProducts === 0 && <Typography>No Product Found</Typography>}
             {products && products.map(product => (
               <ProductCard key={product._id} product={product} />
             ))}
