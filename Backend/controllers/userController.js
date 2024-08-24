@@ -5,6 +5,7 @@ const cloudinary = require("cloudinary")
 
 exports.registerUser = async (req, res) => {
         // Check if email already exists
+        const { name, email, password } = req.body;
         const existingUser = await User.findOne({ email });
         if (existingUser) {
             throw new Error('Email already exists');
@@ -15,7 +16,6 @@ exports.registerUser = async (req, res) => {
         crop: "scale",
     }
     )
-    const { name, email, password } = req.body;
     try {
         const user = await User.create({
             name, email, password,
