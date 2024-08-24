@@ -64,7 +64,7 @@ export const register = (userData) => async (dispatch) => {
         dispatch({ type: REGISTER_USER_REQUEST });
         const config = { headers: { 'Content-Type': 'multipart/form-data' }, withCredentials: true }
         const { data } = await axios.post(`${API_BASE_URL}/api/v1/register`,
-            userData,
+            userData,   
             config
         );
         dispatch({
@@ -74,7 +74,9 @@ export const register = (userData) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: REGISTER_USER_FAIL,
-            payload: error.response.data.message
+            payload: error.response && error.response.data.error
+            ? error.response.data.error
+            : error.message,
         })
     }
 }

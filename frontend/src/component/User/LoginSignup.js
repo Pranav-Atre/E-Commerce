@@ -23,12 +23,13 @@ const LoginSignup = ({history, location}) => {
         password: ""
     })
     const { name, email, password } = user;
-    const [avatar, setAvatar] = useState();
+    const [avatar, setAvatar] = useState("https://res.cloudinary.com/dkp7bgiet/image/upload/v1724515579/avatars/pqqy1dldjlbaw9ulkmws.png");
     const [avatarPreview, setAvatarPreview] = useState("/Profile.png");
     const redirect = location.search ? location.search.split("=")[1] : "/account"
     useEffect(()=>{
         if(error){
-             alert.error(error);
+            const errorMessage = typeof error === 'string' ? error : error.message.split(":")[2];
+             alert.error(errorMessage);
              dispatch(clearErrors())
           }
         if (isAuthenticated) {
