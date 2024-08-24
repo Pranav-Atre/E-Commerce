@@ -156,11 +156,12 @@
   
     .confirmCartItemsContainer {
       max-height: 50vw;
+      margin: 0vmax;  
     }
   
     .confirmCartItemsContainer > div {
-      font: 400 4vw "Roboto";
-      margin: 4vw 0;
+      font: 400 3vw "Roboto";
+      margin: 2vw 0;
     }
   
     .confirmCartItemsContainer > div > img {
@@ -173,7 +174,7 @@
     }
   
     .confirmCartItemsContainer > div > span {
-      font: 100 4vw "Roboto";
+      font: 100 3vw "Roboto";
     }
   
     .orderSummary {

@@ -145,19 +145,19 @@
     }
   
     .cartInput > button {
-      padding: 1.5vmax;
+      padding: 1vmax;
     }
   
     .cartInput > input {
       width: 2vmax;
-      padding: 1.5vmax;
-      font: 400 1.8vmax "Roboto";
+      padding: 1vmax;
+      font: 400 1.4vmax "Roboto";
     }
   
     .cartSubtotal {
-      padding: 1.5vmax;
+      padding: 1vmax;
       height: 20vmax;
-      font: 300 2vmax "Roboto";
+      font: 300 1.8vmax "Roboto";
     }
   
     .cartGrossTotal {

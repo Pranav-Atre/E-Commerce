@@ -42,8 +42,9 @@ const Products = ({ match }) => {
       {loading ? <Loader /> :
         <>
           <MetaData title='PRODUCTS --- ECOMMERCE'/>
-          <h2 className="productsHeading">Products</h2>
+          <div className='container'>
           <div className="products">
+        <h2 className="productsHeading">Products</h2>
             {products && products.map(product => (
               <ProductCard key={product._id} product={product} />
             ))}
@@ -79,6 +80,7 @@ const Products = ({ match }) => {
               max={5}
               />
             </fieldset>
+            </div>
             </div>  
          
       {resultPerPage < filteredProducts &&

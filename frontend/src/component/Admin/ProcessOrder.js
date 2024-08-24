@@ -48,13 +48,13 @@ const ProcessOrder = ({ history, match }) => {
                 <SideBar />
                 <div className="orderContainer">
                 {loading ? <Loader/> : (
-                  <div className="confirmOrderPage"
+                  <div className="processOrderPage"
                   style={{
                     display: order.orderStatus === "Delivered" ? "block" : "grid"
                   }}
                   >
                   <div>
-                    <div className="confirmshippingArea">
+                    <div className="processshippingArea">
                       <Typography>Shipping Info</Typography>
                       <div className="orderDetailsContainerBox">
                                           <div>
@@ -102,9 +102,9 @@ const ProcessOrder = ({ history, match }) => {
                                           </div>
                                       </div>
                     </div>
-                    <div className="confirmCartItems">
+                    <div className="processCartItems">
                       <Typography>Your Cart Items:</Typography>
-                      <div className="confirmCartItemsContainer">
+                      <div className="processCartItemsContainer">
                         {order.orderItems &&
                           order.orderItems.map((item) => (
                             <div key={item.product}>

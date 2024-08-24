@@ -214,14 +214,14 @@
   
     .detailsBlock-1 > p {
       text-align: center;
-      font-size: 1vmax;
+      font-size: 1.5vmax;
     }
   
     .detailsBlock-2 {
       justify-content: center;
     }
     .detailsBlock-2 > span {
-      font-size: 1.4vmax;
+      font-size: 1.5vmax;
     }
   
     .detailsBlock-3 > h1 {

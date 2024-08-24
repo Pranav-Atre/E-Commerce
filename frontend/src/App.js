@@ -47,12 +47,8 @@ function App() {
   const {isAuthenticated, user} = useSelector(state => state.user)
   const [stripeApiKey, setStripeApiKey] = useState("");
   async function getStripeApiKey() {
-    try {
       const { data } = await axios.get(`${API_BASE_URL}/api/v1/stripeapikey`, {withCredentials: true});
       setStripeApiKey(data.stripeApiKey);
-    } catch (error) {
-      console.log(error)
-    }
   }
   useEffect(()=>{
     WebFont.load({
@@ -68,11 +64,6 @@ function App() {
     <Header />
 
     {isAuthenticated && <UserOptions user={user}/>}
-    {stripeApiKey && (
-        <Elements stripe={loadStripe(stripeApiKey)}>
-          <ProtectedRoute exact path={`/process/payment`} component={Payment} />
-        </Elements>
-      )}
 
     <Switch>
     <Route exact path ='/' component={Home} />
@@ -101,9 +92,14 @@ function App() {
     <Route exact path ='/cart' component={Cart} />
     <Route exact path ='/about' component={About} />
     <Route exact path ='/contact' component={Contact} />
-    <Route component={
-      window.location.pathname === "/process/payment" ? null: NotFound
-    }/>
+    <Route exact path='/process/payment'>
+    {stripeApiKey && (
+      <Elements stripe={loadStripe(stripeApiKey)}>
+        <ProtectedRoute exact path={`/process/payment`} component={Payment} />
+      </Elements>
+    )}
+    </Route>
+    <Route component={NotFound} />
     </Switch>
     <Footer />
     </Router>

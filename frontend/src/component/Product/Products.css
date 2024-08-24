@@ -1,3 +1,4 @@
+
 .productsHeading {
     margin: 2vmax auto;
     width: 15vw;
@@ -94,6 +95,15 @@
   }
   
   @media screen and (max-width: 600px) {
+    .container{
+    display: flex;
+    flex-direction: column-reverse;
+    }
+
+    .productsHeading {
+      font-size: 1.7vmax;
+    }
+
     .filterBox {
       width: 20vmax;
       position: static;

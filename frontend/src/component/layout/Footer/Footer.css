@@ -10,13 +10,13 @@ footer {
   .leftFooter {
     width: 20%;
     display: flex;
-  
     flex-direction: column;
     align-items: center;
   }
   .leftFooter > h4 {
     font-family: "Roboto";
     font-size: 1vmax;
+    text-align: center;
   }
   .leftFooter > p {
     text-align: center;
@@ -49,7 +49,6 @@ footer {
   
   .rightFooter {
     width: 20%;
-  
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -70,4 +69,10 @@ footer {
   
   .rightFooter > a:hover {
     color: #eb4034;
+  }
+
+  @media screen and (max-width: 600px) {
+    .rightFooter {
+    margin-top: 3vmax;
+    }
   }

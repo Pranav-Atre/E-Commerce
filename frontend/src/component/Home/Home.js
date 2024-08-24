@@ -31,7 +31,7 @@ const Home = () => {
           </div>
 
           <div id='card'><h2 className='homeHeading'>Featured Products</h2>
-          <div className='container' id='container'>
+          <div className='productsContainer' id='container'>
             {products && products.map(product => (
               <ProductCard key={product._id} product={product} />
             ))}
