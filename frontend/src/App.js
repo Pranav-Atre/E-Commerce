@@ -47,8 +47,12 @@ function App() {
   const {isAuthenticated, user} = useSelector(state => state.user)
   const [stripeApiKey, setStripeApiKey] = useState("");
   async function getStripeApiKey() {
-      const { data } = await axios.get(`${API_BASE_URL}/api/v1/stripeapikey`, {withCredentials: true});
-      setStripeApiKey(data.stripeApiKey);
+      try {
+        const { data } = await axios.get(`${API_BASE_URL}/api/v1/stripeapikey`, {withCredentials: true});
+        setStripeApiKey(data.stripeApiKey);
+      } catch (error) {
+        console.error(error.message);    
+      }
   }
   useEffect(()=>{
     WebFont.load({
