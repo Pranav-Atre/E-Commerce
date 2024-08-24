@@ -44,6 +44,7 @@ const UserOptions = ({user}) => {
     }
     function logoutUser(){
         dispatch(logout());
+        localStorage.removeItem('cartItems', 'shippingInfo');
         alert.success('Logout Successfully')
     }
     return (
