@@ -8,7 +8,7 @@ exports.registerUser = async (req, res) => {
         const { name, email, password } = req.body;
         const existingUser = await User.findOne({ email });
         if (existingUser) {
-            res.status(500).json('Email already exists');
+            res.status(500).json({error : 'Email already exists'});
         }
     const myCloud = await cloudinary.v2.uploader.upload(req.body.avatar, {
         folder: "avatars",
