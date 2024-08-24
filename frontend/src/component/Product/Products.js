@@ -43,8 +43,9 @@ const Products = ({ match }) => {
         <>
           <MetaData title='PRODUCTS --- ECOMMERCE'/>
           <div className='container'>
-          <div className="products">
         <h2 className="productsHeading">Products</h2>
+          <div className="products">
+        <h2 className="productsHeading2">Products</h2>
         {filteredProducts === 0 && <Typography>No Product Found</Typography>}
             {products && products.map(product => (
               <ProductCard key={product._id} product={product} />

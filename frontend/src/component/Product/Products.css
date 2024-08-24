@@ -1,5 +1,5 @@
 
-.productsHeading {
+.productsHeading, .productsHeading2 {
     margin: 2vmax auto;
     width: 15vw;
     border-bottom: 1px solid rgba(0, 0, 0, 0.171);
@@ -9,6 +9,10 @@
     text-align: center;
   }
   
+  .productsHeading2 {
+    display: none;
+  }
+
   .products {
     display: flex;
     flex-wrap: wrap;
@@ -105,9 +109,14 @@
     flex-direction: column-reverse;
     }
 
-    .productsHeading {
+    .productsHeading2 {
       font-size: 1.7vmax;
-      width: 100%;
+      width: 80%;
+      display: block;
+    }
+
+    .productsHeading {
+      display: none;
     }
 
     .filterBox {
