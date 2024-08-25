@@ -23,7 +23,7 @@ const categories = [
 const Products = ({ match }) => {
   const dispatch = useDispatch();
   const [currentPage, setCurrentPage] = useState(1);
-  const [price, setPrice] = useState([0, 30000]);
+  const [price, setPrice] = useState([0, 80000]);
   const [category, setCategory] = useState("");
   const [ratings, setRatings] = useState(0);
   const priceHandler = (e, newPrice) => {
