@@ -31,7 +31,7 @@ import {
 } from "../constants/productConstants";
 const API_BASE_URL = "https://e-commerce-zrqz.onrender.com";
 
-export const getProducts = (keyword = "", currentPage = 1, price = [0, 30000], category, ratings = 0) => async (dispatch) => {
+export const getProducts = (keyword = "", currentPage = 1, price = [0, 80000], category, ratings = 0) => async (dispatch) => {
     try {
         dispatch({ type: ALL_PRODUCT_REQUEST });
         let link = `${API_BASE_URL}/api/v1/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&ratings[gte]=${ratings}`;

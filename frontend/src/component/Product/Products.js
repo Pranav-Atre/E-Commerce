@@ -59,7 +59,7 @@ const Products = ({ match }) => {
             aria-labelledby="range-slider"
             valueLabelDisplay='auto'
             min={0}
-            max={30000}
+            max={80000}
             />
             <Typography>Categories</Typography>
             <ul className='categoryBox'>
