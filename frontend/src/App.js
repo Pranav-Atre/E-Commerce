@@ -4,7 +4,7 @@ import UserOptions from "./component/layout/Header/UserOptions.js";
 import Footer from "./component/layout/Footer/Footer.js";
 import { BrowserRouter as Router } from "react-router-dom";
 import WebFont from 'webfontloader';
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Route, Switch } from 'react-router-dom/cjs/react-router-dom.min.js';
 import Home from './component/Home/Home.js';
 import ProductDetails from './component/Product/ProductDetails';
@@ -46,18 +46,15 @@ const API_BASE_URL = "https://e-commerce-zrqz.onrender.com";
 function App() {
   const { isAuthenticated, user } = useSelector(state => state.user);
   const [stripeApiKey, setStripeApiKey] = useState("");
-  const [loading, setLoading] = useState(true); // Start with loading state as true
 
-  async function getStripeApiKey() {
+  const getStripeApiKey = useCallback(async () => {
     try {
       const { data } = await axios.get(`${API_BASE_URL}/api/v1/stripeapikey`, { withCredentials: true });
       setStripeApiKey(data.stripeApiKey);
     } catch (error) {
       console.error(error.message);
-    } finally {
-      setLoading(false);  // Set loading to false after fetching the key or if there was an error
     }
-  }
+  }, []); 
 
   useEffect(() => {
     WebFont.load({
@@ -66,10 +63,15 @@ function App() {
       }
     });
     store.dispatch(loadUser());
-    getStripeApiKey(); // Fetch the Stripe API key directly
   }, []);
 
-  if (loading) return <div>Loading...</div>; // Render loading spinner or text
+  useEffect(() => {
+    if (isAuthenticated) {
+      getStripeApiKey();
+    } else {
+      setStripeApiKey("");
+    }
+  }, [isAuthenticated, getStripeApiKey]); 
 
   return (
     <Router>
@@ -77,6 +79,13 @@ function App() {
       {isAuthenticated && <UserOptions user={user} />}
       <Switch>
         <Route exact path='/' component={Home} />
+        <Route exact path={`/process/payment`}>
+          {stripeApiKey && (
+            <Elements stripe={loadStripe(stripeApiKey)}>
+              <ProtectedRoute exact path={`/process/payment`} component={Payment} />
+            </Elements>
+          )}
+        </Route>
         <ProtectedRoute exact path='/account' component={Profile} />
         <ProtectedRoute exact path='/me/update' component={UpdateProfile} />
         <ProtectedRoute exact path='/password/update' component={UpdatePassword} />
@@ -102,15 +111,6 @@ function App() {
         <Route exact path='/cart' component={Cart} />
         <Route exact path='/about' component={About} />
         <Route exact path='/contact' component={Contact} />
-        <Route exact path='/process/payment'>
-          {stripeApiKey ? (
-            <Elements stripe={loadStripe(stripeApiKey)}>
-              <ProtectedRoute exact path={`/process/payment`} component={Payment} />
-            </Elements>
-          ) : (
-            <div>Loading payment details...</div>
-          )}
-        </Route>
         <Route component={NotFound} />
       </Switch>
       <Footer />
