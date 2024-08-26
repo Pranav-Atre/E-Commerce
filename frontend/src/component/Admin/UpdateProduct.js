@@ -65,6 +65,7 @@ const UpdateProduct = ({ history, match }) => {
             alert.success("Product Updated Successfully");
             history.push("/admin/products");
             dispatch({ type: UPDATE_PRODUCT_RESET });
+            dispatch(getProductDetails(productId));
         }
     }, [error, alert, dispatch, isUpdated, history, product, productId, updateError]);
 
