@@ -113,7 +113,7 @@ const ProductDetails = ({ match }) => {
                                 </div>
                                 <p>
                                     Status :
-                                    <b className={product.countInStock < 1 ? 'redColor' : 'greenColor'}>
+                                    <b className={product.stock < 1 ? 'redColor' : 'greenColor'}>
                                         {product.stock < 1 ? 'OutOfStock' : 'InStock'}
                                     </b>
                                 </p>
