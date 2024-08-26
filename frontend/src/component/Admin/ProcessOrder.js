@@ -46,17 +46,17 @@ const ProcessOrder = ({ history, match }) => {
             <MetaData title="Process Orders" />
             <div className="dashboard">
                 <SideBar />
-                <div className="orderContainer">
+                <div className="newProductContainer">
                 {loading ? <Loader/> : (
-                  <div className="processOrderPage"
+                  <div className="confirmOrderPage"
                   style={{
                     display: order.orderStatus === "Delivered" ? "block" : "grid"
                   }}
                   >
                   <div>
-                    <div className="processshippingArea">
+                    <div className="confirmshippingArea">
                       <Typography>Shipping Info</Typography>
-                      <div className="orderDetailsContainerBox">
+                      <div className="processOrderContainerBox">
                                           <div>
                                               <p>Name:</p>
                                               <span>{order.user && order.user.name}</span>
@@ -72,7 +72,7 @@ const ProcessOrder = ({ history, match }) => {
                                           </div>
                                       </div>
                       <Typography> Payment Info</Typography>
-                                      <div className="orderDetailsContainerBox">
+                                      <div className="processOrderContainerBox">
                                           <div>
                                               <p
                                                   className={order.paymentInfo && order.paymentInfo.status === "succeeded"
@@ -90,7 +90,7 @@ const ProcessOrder = ({ history, match }) => {
                                           </div>
                                       </div>
                                       <Typography> Order Status</Typography>
-                                      <div className="orderDetailsContainerBox">
+                                      <div className="processOrderContainerBox">
                                           <div>
                                               <p
                                                   className={ order.orderStatus && order.orderStatus === "Delivered"
@@ -102,9 +102,9 @@ const ProcessOrder = ({ history, match }) => {
                                           </div>
                                       </div>
                     </div>
-                    <div className="processCartItems">
+                    <div className="confirmCartItems">
                       <Typography>Your Cart Items:</Typography>
-                      <div className="processCartItemsContainer">
+                      <div className="confirmCartItemsContainer">
                         {order.orderItems &&
                           order.orderItems.map((item) => (
                             <div key={item.product}>
